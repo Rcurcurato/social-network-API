@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 
-const userRoutes = require('./routes/user-routes');
-const thoughtRoutes = require('./routes/thought-routes');
-const reactionRoutes = require('./routes/reaction-routes');
+const userRoutes = require('./routes/api/users.js');
+const thoughtRoutes = require('./routes/api/thought.js');
+const reactionRoutes = require('./routes/api/reactions.js');
 
 app.use('/api/users', userRoutes);
 app.use('/api/thoughts', thoughtRoutes);

@@ -1,4 +1,6 @@
 const { Schema, Types } = require('mongoose');
+const reactionSchema = require('../models/reaction.js'); // Adjust the path as needed
+
 
 const thoughtSchema = new Schema(
     {

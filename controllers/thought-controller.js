@@ -1,4 +1,4 @@
-const Thought = require('../models/Thought'); // Import the Thought model
+const Thought = require('../models/hought'); // Import the Thought model
 
 module.exports = {
     // Create a new thought
