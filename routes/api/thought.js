@@ -3,10 +3,10 @@ const router = express.Router();
 
 const thoughtController = require('../../controllers/thought-controller');
 
-router.get('/thoughts', thoughtController.getThoughts);
-router.get('/thoughts/:thoughtId', thoughtController.getThoughtById);
-router.post('/thoughts', thoughtController.createThought);
-router.put('/thoughts/:thoughtId', (req, res) => {
+router.get('/', thoughtController.getThoughts);
+router.get('/:thoughtId', thoughtController.getThoughtById);
+router.post('/', thoughtController.createThought);
+router.put('/:thoughtId', (req, res) => {
     const { thoughtId } = req.params;
     const updatedThoughtData = req.body;
 
@@ -23,7 +23,7 @@ router.put('/thoughts/:thoughtId', (req, res) => {
         }
     );
 });
-router.delete('/thoughts/:thoughtId', (req, res) => {
+router.delete('/:thoughtId', (req, res) => {
     
 });
 

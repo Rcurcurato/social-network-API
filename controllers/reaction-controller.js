@@ -1,6 +1,6 @@
-const { Thought } = require('../models/reaction');
+const Thought = require('../models/thought');
 
-module.exports = {
+const reactionController = {
     // Get all reactions for a thought
     async getReactions(req, res) {
         try {
@@ -37,6 +37,7 @@ module.exports = {
             res.json(updatedThought);
         } catch (err) {
             res.status(500).json(err);
+            console.log(err);
         }
     },
     // Delete a reaction from a thought
@@ -50,7 +51,7 @@ module.exports = {
 
             // Find index of reaction to remove
             const reactionIndex = thought.reactions.findIndex(
-                (reaction) => reaction._id.toString() === req.params.reactionId
+                (reaction) => reaction.reactionId.toString() === req.params.reactionId
             );
 
             if (reactionIndex === -1) {
@@ -68,3 +69,5 @@ module.exports = {
         }
     },
 };
+
+module.exports = reactionController;

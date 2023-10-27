@@ -1,4 +1,4 @@
-const { User } = require('../models/user');
+const User = require('../models/user');
 
 module.exports = {
     // Create new user
@@ -9,6 +9,7 @@ module.exports = {
             res.status(201).json(savedUser);
         } catch (err) {
             res.status(500).json(err);
+            console.log(err);
         }
     },
 
@@ -40,9 +41,9 @@ module.exports = {
     // Update a user by ID
     async updateUser(req, res) {
         try {
-            const updateUser = await User.findByIdAndUpdate(
-                req.params.userId,
-                req.body,
+            const updatedUser = await User.findByIdAndUpdate(
+                {_id:req.params.userId},
+                {$set:req.body},
                 { new: true, runValidators: true }
             );
             if (!updatedUser) {
